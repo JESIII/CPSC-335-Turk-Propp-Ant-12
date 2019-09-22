@@ -5,7 +5,7 @@
 <body><h1>Ant #12</h1>
 <h4>Time-stamp: <2019-09-11 07:46:03 John Scales></h4>
 
-<canvas id="grid" width="410" height="410"></canvas>
+<canvas id="grid" width="400" height="400"></canvas>
 
 </body>
 <script src="../assets/draw-stuff.js"></script>
@@ -18,10 +18,8 @@
 var canvas = document.getElementById( "grid" );
 var context = canvas.getContext( "2d" );
 // Draw a grid
-draw_grid( context, 10, 50, 'white', 'green' );
+draw_grid( context, 10, 100, 'white', 'black' );
 //ANT STUFF
-
-
 
 let ant = {
 	dir: 3,
@@ -46,22 +44,22 @@ const loopDrawRect = setInterval(() => {
 	if (grid[ant.x][ant.y] == black){
 	grid[ant.x][ant.y] = red;
 	goleft(ant, context, red);
-	
+
 	}
 	else if(grid[ant.x][ant.y] == red){
 	grid[ant.x][ant.y] = yellow;
 	goleft(ant, context, yellow);
-	
+
 	}
 	else if(grid[ant.x][ant.y] == yellow){
 	grid[ant.x][ant.y] = blue;
 	goright(ant, context, blue);
-	
+
 	}
 	else{
 	grid [ant.x][ant.y] = black;
 	goright(ant, context, black);
-	
+
 	}
     console.log(ant.x);
     counter += 1;
