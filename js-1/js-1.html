@@ -5,7 +5,7 @@
 <body><h1>Ant #12</h1>
 <h4>Time-stamp: <2019-09-11 07:46:03 John Scales></h4>
 
-<canvas id="grid" width="400" height="400"></canvas>
+<canvas id="grid" width="410" height="410"></canvas>
 
 </body>
 <script src="../assets/draw-stuff.js"></script>
@@ -27,7 +27,7 @@ let ant = {
 	x: 20,
 	y: 20
 }
-
+ant.dir = 3;
 var black = 0, red = 1, yellow = 2, blue = 3;
 var ANTUP = 0, ANTRIGHT = 1, ANTDOWN = 2, ANTLEFT = 3;
 //Directional Grid
@@ -63,10 +63,10 @@ const loopDrawRect = setInterval(() => {
 	}
     console.log(ant.x);
     counter += 1;
-    if (counter == 1000){
+    if (counter == 40000){
       clearInterval(loopDrawRect);
     }
-  }, 400)
+  }, 1)
 
 
 
