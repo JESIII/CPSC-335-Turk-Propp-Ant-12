@@ -18,6 +18,19 @@ function draw_triangle( rctx, rp1x, rp1y, rp2x, rp2y, rp3x, rp3y, dir )
     rctx.fill();
     rctx.restore( );
 }
+function uptri(){
+  //draw_triangle(context, ant.x+0.4, ant.y+0.1, ant.x + .8, ant.y+.8, ant.x, ant.y+.8, ant.dir);
+}
+function downtri(){
+  //draw_triangle(context, ant.x+0.4, ant.y+0.1, ant.x + .8, ant.y+.8, ant.x, ant.y+.8, ant.dir);
+}
+function righttri(){
+//  draw_triangle(context, ant.x+0.4, ant.y+0.1, ant.x + .8, ant.y+.8, ant.x, ant.y+.8, ant.dir);
+}
+function lefttri(){
+  //draw_triangle(context, ant.x+0.4, ant.y+0.1, ant.x + .8, ant.y+.8, ant.x, ant.y+.8, ant.dir);
+}
+
 function Create2DArray(rows) {
   var arr = [];
 
@@ -103,7 +116,7 @@ function draw_grid( rctx, rminor, rmajor, rstroke, rfill )
         rctx.lineTo( ix, height );
         rctx.lineWidth = ( ix % rmajor == 0 ) ? .5 : .5;
         rctx.stroke( );
-        if ( ix % rmajor == 0 ) { rctx.fillText( ix, ix, 10 ); }
+        if ( ix % rmajor == 0 ) { rctx.fillText( ix/10, ix, 10 ); }
     }
     for ( var iy = 0; iy < height; iy += rminor )
     {
@@ -112,7 +125,7 @@ function draw_grid( rctx, rminor, rmajor, rstroke, rfill )
         rctx.lineTo( width, iy );
         rctx.lineWidth = ( iy % rmajor == 0 ) ? .5 : .5;
         rctx.stroke( );
-        if ( iy % rmajor == 0 ) {rctx.fillText( iy, 0, iy + 10 );}
+        if ( iy % rmajor == 0 ) {rctx.fillText( iy/10, 0, iy + 10 );}
     }
     rctx.restore( );
 }
