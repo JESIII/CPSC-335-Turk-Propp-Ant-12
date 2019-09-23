@@ -33,10 +33,10 @@ var ANTUP = 0, ANTRIGHT = 1, ANTDOWN = 2, ANTLEFT = 3;
 //Directional Grid
 
 var grid = Create2DArray(41);
-
 var state = 0;
 let counter = 0;
 draw_ant(context, ant.x, ant.y, ant.color);
+draw_triangle(context, ant.x+0.4, ant.y+0.1, ant.x + .8, ant.y+.8, ant.x, ant.y+.8, ant.dir);
 //FSM
 const loopDrawRect = setInterval(() => {
     state = counter % 4;
@@ -66,7 +66,7 @@ const loopDrawRect = setInterval(() => {
     if (counter == 40000){
       clearInterval(loopDrawRect);
     }
-  }, 1)
+  }, 300)
 
 
 

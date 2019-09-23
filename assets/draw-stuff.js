@@ -3,13 +3,32 @@
 // ------------------------------------------------------------
 
 // FUN. Draw filled rect.
+function draw_triangle( rctx, rp1x, rp1y, rp2x, rp2y, rp3x, rp3y, dir )
+{
+    rctx.save( );
+
+    // BL Triangle.
+    rctx.beginPath( );
+    rctx.moveTo( rp1x*10, rp1y*10 ); // 50, 250
+    rctx.lineTo( rp2x*10, rp2y*10 ); // 50, 350
+    rctx.lineTo( rp3x*10, rp3y *10); // 150, 350
+    rctx.closePath();
+    rctx.stroke();
+    rctx.fillStyle = 'white';
+    rctx.fill();
+    rctx.restore( );
+}
 function Create2DArray(rows) {
   var arr = [];
 
   for (var i=0;i<rows;i++) {
      arr[i] = [];
   }
-
+  for (var i = 0; i<rows; i++){
+    for (var j = 0; j<rows; j++){
+      arr[i][j] = 0;
+    }
+  }
   return arr;
 }
 async function draw_ant( ctx , posx, posy, color)
@@ -45,8 +64,8 @@ function goleft(ant, ctx, color){
 		ant.dir = 2;
 		ant.y = ant.y + 1;
 	}
-
 	draw_ant(ctx, ant.x, ant.y, color);
+  //draw_triangle(context, ant.x+0.4, ant.y+0.1, ant.x + .8, ant.y+.8, ant.x, ant.y+.8);
 }
 function goright(ant, ctx, color){
 	if(ant.dir == 0){
@@ -66,6 +85,7 @@ function goright(ant, ctx, color){
 		ant.y = ant.y - 1;
 	}
 	draw_ant(ctx, ant.x, ant.y, color);
+  //draw_triangle(context, ant.x+0.4, ant.y+0.1, ant.x + .8, ant.y+.8, ant.x, ant.y+.8);
 }
 
 // =====================================================  draw_grid ====
