@@ -3,7 +3,7 @@
 // ------------------------------------------------------------
 
 // FUN. Draw filled rect.
-function draw_triangle( rctx, rp1x, rp1y, rp2x, rp2y, rp3x, rp3y, dir )
+function draw_triangle( rctx, rp1x, rp1y, rp2x, rp2y, rp3x, rp3y)
 {
     rctx.save( );
 
@@ -17,18 +17,6 @@ function draw_triangle( rctx, rp1x, rp1y, rp2x, rp2y, rp3x, rp3y, dir )
     rctx.fillStyle = 'white';
     rctx.fill();
     rctx.restore( );
-}
-function uptri(){
-  //draw_triangle(context, ant.x+0.4, ant.y+0.1, ant.x + .8, ant.y+.8, ant.x, ant.y+.8, ant.dir);
-}
-function downtri(){
-  //draw_triangle(context, ant.x+0.4, ant.y+0.1, ant.x + .8, ant.y+.8, ant.x, ant.y+.8, ant.dir);
-}
-function righttri(){
-//  draw_triangle(context, ant.x+0.4, ant.y+0.1, ant.x + .8, ant.y+.8, ant.x, ant.y+.8, ant.dir);
-}
-function lefttri(){
-  //draw_triangle(context, ant.x+0.4, ant.y+0.1, ant.x + .8, ant.y+.8, ant.x, ant.y+.8, ant.dir);
 }
 
 function Create2DArray(rows) {
@@ -46,59 +34,67 @@ function Create2DArray(rows) {
 }
 async function draw_ant( ctx , posx, posy, color)
 {
-	//ctx.save( );
+	ctx.save( );
 	if (color == 0) fill = 'black';
 	if (color == 1) fill = 'red';
 	if (color == 2) fill = 'yellow';
 	if (color == 3) fill = 'blue';
   ctx.beginPath();
-    ctx.fillStyle = fill;
-
-    ctx.rect(posx*10 + 1, posy*10 + 2, 7, 7);
-    ctx.stroke( );
-    ctx.fill( );
-  //  ctx.restore( );
+  ctx.fillStyle = fill;
+  ctx.rect(posx*10 + 1, posy*10 + 2, 7, 7);
+  ctx.fill( );
+  ctx.stroke( );
+  ctx.restore( );
 }
 
-function goleft(ant, ctx, color){
+function goleft(ant, ctx){
+  draw_ant(ctx, ant.x, ant.y, ant.color);
 	if(ant.dir == 0){
 		ant.dir = 3;
+    draw_triangle(context, ant.x+0.1- 1, ant.y+0.4, ant.x + .8- 1, ant.y+.1, ant.x+.8- 1, ant.y+.8);
+
 		ant.x = ant.x - 1;
 	}
 	else if(ant.dir == 1){
 		ant.dir = 0;
+    draw_triangle(context, ant.x+0.4, ant.y+0.1- 1, ant.x + .8, ant.y+.8- 1, ant.x+0.1, ant.y+.8- 1);
+
 		ant.y = ant.y - 1;
 	}
 	else if(ant.dir == 2){
 		ant.dir = 1;
+    draw_triangle(context, ant.x+0.1+ 1, ant.y+0.1, ant.x + .8+ 1, ant.y+.4, ant.x+.1+ 1, ant.y+.8);
+
 		ant.x = ant.x + 1;
 	}
 	else if(ant.dir == 3){
 		ant.dir = 2;
+    draw_triangle(context, ant.x+0.1, ant.y+0.1+ 1, ant.x + .8, ant.y+.1+ 1, ant.x+.4, ant.y+.8+ 1);
 		ant.y = ant.y + 1;
 	}
-	draw_ant(ctx, ant.x, ant.y, color);
-  //draw_triangle(context, ant.x+0.4, ant.y+0.1, ant.x + .8, ant.y+.8, ant.x, ant.y+.8);
 }
-function goright(ant, ctx, color){
+function goright(ant, ctx){
+  draw_ant(ctx, ant.x, ant.y, ant.color);
 	if(ant.dir == 0){
 		ant.dir = 1;
+    draw_triangle(context, ant.x+0.1+ 1, ant.y+0.1, ant.x + .8+ 1, ant.y+.4, ant.x+.1+ 1, ant.y+.8);
 		ant.x = ant.x + 1;
 	}
 	else if(ant.dir == 1){
 		ant.dir = 2;
+    draw_triangle(context, ant.x+0.1, ant.y+0.1+ 1, ant.x + .8, ant.y+.1+ 1, ant.x+.4, ant.y+.8+ 1);
 		ant.y = ant.y + 1;
 	}
 	else if(ant.dir == 2){
 		ant.dir = 3;
+    draw_triangle(context, ant.x+0.1- 1, ant.y+0.4, ant.x + .8- 1, ant.y+.1, ant.x+.8- 1, ant.y+.8);
 		ant.x = ant.x - 1;
 	}
 	else if(ant.dir == 3){
 		ant.dir = 0;
+    draw_triangle(context, ant.x+0.4, ant.y+0.1- 1, ant.x + .8, ant.y+.8- 1, ant.x+0.1, ant.y+.8- 1);
 		ant.y = ant.y - 1;
 	}
-	draw_ant(ctx, ant.x, ant.y, color);
-  //draw_triangle(context, ant.x+0.4, ant.y+0.1, ant.x + .8, ant.y+.8, ant.x, ant.y+.8);
 }
 
 // =====================================================  draw_grid ====

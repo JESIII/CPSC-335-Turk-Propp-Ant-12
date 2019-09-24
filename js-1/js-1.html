@@ -26,41 +26,41 @@ let ant = {
 	x: 20,
 	y: 20
 }
-ant.dir = 3;
 var black = 0, red = 1, yellow = 2, blue = 3;
 var ANTUP = 0, ANTRIGHT = 1, ANTDOWN = 2, ANTLEFT = 3;
 //Directional Grid
 
 var grid = Create2DArray(41);
-var state = 0;
-let counter = 0;
+//var state = 0;
+var counter = 0;
 draw_ant(context, ant.x, ant.y, ant.color);
-draw_triangle(context, ant.x+0.4, ant.y+0.1, ant.x + .8, ant.y+.8, ant.x, ant.y+.8, ant.dir);
+//draw_triangle(context, ant.x+0.4, ant.y+0.1, ant.x + .8, ant.y+.8, ant.x, ant.y+.8);
 //FSM
 const loopDrawRect = setInterval(() => {
-    state = counter % 4;
-    //  Logic for ant
+  //state = counter % 4;
+  //  Logic for ant
 	if (grid[ant.x][ant.y] == black){
 	grid[ant.x][ant.y] = red;
-	goleft(ant, context, red);
-
+	ant.color = red;
+	goleft(ant, context)
 	}
 	else if(grid[ant.x][ant.y] == red){
 	grid[ant.x][ant.y] = yellow;
-	goleft(ant, context, yellow);
-
+	ant.color = yellow;
+	goleft(ant, context)
 	}
 	else if(grid[ant.x][ant.y] == yellow){
 	grid[ant.x][ant.y] = blue;
-	goright(ant, context, blue);
-
+	ant.color = blue;
+	goright(ant, context)
 	}
-	else{
-	grid [ant.x][ant.y] = black;
-	goright(ant, context, black);
-
+	else if(grid[ant.x][ant.y] == blue){
+	grid[ant.x][ant.y] = black;
+	ant.color = black;
+	goright(ant, context)
 	}
-    console.log(ant.x);
+    //console.log(ant.x);
+		//console.log(ant.y);
     counter += 1;
     if (counter == 40000){
       clearInterval(loopDrawRect);
