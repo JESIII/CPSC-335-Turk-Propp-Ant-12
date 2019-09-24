@@ -1,3 +1,12 @@
+//John Scales
+//CWID 888865730
+//Class Number 335-04
+//13602 Loumont st.
+//Whittier, CA 90601
+//24 September 2019
+//Turk & Propp's Ant #12
+//This file contains al of the functions for js-1.html
+
 // Draw stuff
 // ------------------------------------------------------------
 function draw_triangle( rctx, rp1x, rp1y, rp2x, rp2y, rp3x, rp3y)
