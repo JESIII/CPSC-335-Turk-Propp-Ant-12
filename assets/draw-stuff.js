@@ -1,8 +1,5 @@
 // Draw stuff
-// Time-stamp: <2019-01-21 20:08:33 Chuck Siska>
 // ------------------------------------------------------------
-
-// FUN. Draw filled rect.
 function draw_triangle( rctx, rp1x, rp1y, rp2x, rp2y, rp3x, rp3y)
 {
     rctx.save( );
@@ -18,7 +15,6 @@ function draw_triangle( rctx, rp1x, rp1y, rp2x, rp2y, rp3x, rp3y)
     rctx.fill();
     rctx.restore( );
 }
-
 function Create2DArray(rows) {
   var arr = [];
 
